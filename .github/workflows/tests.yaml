@@ -9,7 +9,7 @@ on:
 jobs:
   tests:
     name: py${{ matrix.python }} unit tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
@@ -43,7 +43,7 @@ jobs:
 
   minversions:
     name: minimum dependency versions
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
@@ -68,7 +68,7 @@ jobs:
           uv run pytest --numprocesses auto
 
   style:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
@@ -91,7 +91,7 @@ jobs:
           uv run pre-commit run --all-files
 
   doc:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - name: Install uv
